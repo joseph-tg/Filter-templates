@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  body {
+    background: #444;
+  }
+  .main {
+    padding: 2% 25%;
+    font-family: tahoma;
+  }
+  .main .head {
+    color: rgb(146, 153, 255);
+    display: flex;
+    justify-content: space-between;
+  }
+  .main .head h4 a{
+    color: blue;
+    text-decoration: none;
+  }
+
+  /* Create a column layout with Flexbox */
+  .row {
+    display: flex;
+  }
+
+  /* Left column (menu) */
+  .items {
+    flex: 35%;
+    padding: 15px 0;
+  }
+
+  /* Style the search box */
+  #mySearch {
+    width: 100%;
+    max-width: 650px;
+    font-size: 1rem;
+    padding: 11px;
+    border: 1px solid #ddd;
+    outline: none;
+    border-radius: 5px;
+    background: #ddd;
+  }
+
+  #mySearch:focus {
+    background: rgb(238, 237, 237);
+  }
+  /* Style the navigation menu inside the left column */
+  #myMenu {
+    list-style-type: none;
+    padding: 0 1rem;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border: #223 dotted 1px;
+    border-radius: 10px;
+  }
+
+  #myMenu li a {
+    padding: 12px;
+    text-decoration: none;
+    color: #fff;
+    display: block
+  } 
+  @media only screen and (max-width: 750px){
+    .main {
+      padding: 4% 5%;
+    }
+    #myMenu {
+      margin-top: 1rem;
+    }
+    #myMenu li a {
+      padding: 8px;
+    }
+    .head {
+      margin: 1rem 0;
+    }
+    h2 {
+      font-size: 1.3rem;
+      padding-bottom: 5px;
+    }
+    .main .head {
+      flex-direction: column;
+    }
+  }
+
+  </style>
+  </head>
+  <body>
+  <div class="main">
+    <div class="head">
+      <h2>Filter Elements by Searching</h2>
+      <h4><a href="../index.html">Back Home</a></h4>
+    </div>
+    <div class="row">
+      <div class="items">
+        <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category">
+        <ul id="myMenu">
+          <li><a href="#">BMW</a></li>
+          <li><a href="#">Orange</a></li>
+          <li><a href="#">Python</a></li>
+          <li><a href="#">Django</a></li>
+          <li><a href="#">Volvo</a></li>
+          <li><a href="#">Red</a></li>
+          <li><a href="#">Mustang</a></li>
+          <li><a href="#">Blue</a></li>
+          <li><a href="#">PHP</a></li>
+          <li><a href="#">Cat</a></li>
+          <li><a href="#">JavaScript</a></li>
+          <li><a href="#">Nodejs</a></li>
+          <li><a href="#">Dog</a></li>
+          <li><a href="#">Melon</a></li>
+          <li><a href="#">Kiwi</a></li>
+          <li><a href="#">Banana</a></li>
+          <li><a href="#">mySql</a></li>
+          <li><a href="#">Lemon</a></li>
+          <li><a href="#">Cow</a></li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+
+  <script>
+  function myFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("mySearch");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myMenu");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+      a = li[i].getElementsByTagName("a")[0];
+      if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = "";
+      } else {
+        li[i].style.display = "none";
+      }
+    }
+  }
+  </script>
+
+</body>
+</html>
